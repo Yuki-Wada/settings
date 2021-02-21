@@ -1,0 +1,5 @@
+* text core.autocrlf=true
+*.png binary
+*.mat binary
+*.jpg binary
+*.ipynb binary
