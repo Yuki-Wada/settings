@@ -6,13 +6,13 @@
 			"label": "C/C++: cpp build active file",
 			"command": "/usr/bin/g++",
 			"args": [
-				"-g",
 				"${file}",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
 				"-std=c++17",
+				"-I${workspaceFolder}/lib/eigen-3.3.7",
+				"-g",
 				"-mavx2",
-				"-I${workspaceFolder}/lib/eigen-3.3.7"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"
@@ -27,15 +27,15 @@
 			"label": "C/C++: build test file",
 			"command": "/usr/bin/g++",
 			"args": [
-				"-g",
-				"${workspaceFolder}/cpp/test/segment_tree_test.cpp",
-				"${workspaceFolder}/cpp/test/max_flow_test.cpp",
-				"${workspaceFolder}/cpp/test/min_cost_flow_test.cpp",
+				"${workspaceFolder}/model/word2vec_impl/word2vec_impl.cpp",
+				"${workspaceFolder}/test/word2vec_impl_test.cpp",
 				"-o",
-				"${workspaceFolder}/cpp/test/test",
-				"-DLOCAL_ENV",
+				"${workspaceFolder}/test/cpp_unit_test",
 				"-std=c++17",
-				"-I${workspaceFolder}/cpp/src"
+				"-I${workspaceFolder}/lib/eigen-3.3.7",
+				"-I${workspaceFolder}/test",
+				"-g",
+				"-mavx2",
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"
@@ -48,25 +48,5 @@
 				"isDefault": true
 			}
 		},
-		{
-			"type": "shell",
-			"label": "C/C++: cpp build object file",
-			"command": "/usr/bin/g++",
-			"args": [
-				"-g",
-				"${file}",
-				"-c",
-				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}.o",
-				"-std=c++11"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": "build"
-		}
 	]
 }
